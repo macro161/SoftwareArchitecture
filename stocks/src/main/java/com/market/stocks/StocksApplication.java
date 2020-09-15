@@ -1,13 +1,13 @@
-package com.finance.stockexchange;
+package com.market.stocks;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class StockexchangeApplication {
+public class StocksApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(StockexchangeApplication.class, args);
+		SpringApplication.run(StocksApplication.class, args);
 	}
 
 }

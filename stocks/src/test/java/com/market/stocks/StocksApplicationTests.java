@@ -1,10 +1,10 @@
-package com.finance.stockexchange;
+package com.market.stocks;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class StockexchangeApplicationTests {
+class StocksApplicationTests {
 
 	@Test
 	void contextLoads() {
