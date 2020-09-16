@@ -17,10 +17,8 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Stock s1 = new Stock();
-        s1.setStockName("TSLA");
-        s1.setPrice(420.69f);
-        stockRepository.save(s1);
 
+
+        stockRepository.findAll();
     }
 }
