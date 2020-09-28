@@ -1,8 +1,0 @@
-DROP TABLE IF EXISTS stock;
-
-CREATE TABLE stock (
-  id INT PRIMARY KEY,
-  stockName VARCHAR(250) NOT NULL,
-  stockPrice DECIMAL NOT NULL
-);
-

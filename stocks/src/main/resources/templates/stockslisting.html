@@ -12,12 +12,18 @@
             <th>Id</th>
             <th>Stock name</th>
             <th>Stock price</th>
+            <th>Available amount</th>
+            <th>Description</th>>
 
         </tr>
         <tr th:each="s : ${stockslisting}">
             <td th:text="${s.id}"></td>
             <td th:text="${s.stockName}"></td>
             <td th:text="${s.price}"></td>
+            <td th:text="${s.availableAmount}"></td>
+            <td th:text="${s.description}"></td>
+            <td><a th:href="'/stockslisting/edit/'  + ${s.id}">Edit</a></td>
+            <td><a th:href="'/stockslisting/delete/'  + ${s.id}">Delete</a></td>
         </tr>
     </table>
 </div>

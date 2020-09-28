@@ -1,11 +1,12 @@
-package com.market.stocks;
+package com.market.stocks.repository;
 
+import com.market.stocks.model.Stock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DataLoader implements CommandLineRunner {
+public class DataLoader  implements CommandLineRunner{
 
     private StockRepository stockRepository;
 
@@ -17,8 +18,9 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
-
-        stockRepository.findAll();
+        Stock s1 = new Stock();
+        s1.setStockName("TSLA");
+        s1.setPrice(420.69f);
+        stockRepository.save(s1);
     }
 }

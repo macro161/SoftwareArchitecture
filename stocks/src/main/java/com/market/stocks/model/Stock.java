@@ -1,4 +1,4 @@
-package com.market.stocks;
+package com.market.stocks.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,11 +17,11 @@ public class Stock {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Getter
-    @Setter
     private String stockName;
 
-    @Getter
-    @Setter
     private float price;
+
+    private float availableAmount;
+
+    private String description;
 }
