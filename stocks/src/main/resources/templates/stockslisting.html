@@ -3,9 +3,18 @@
 <head lang="en">
     <title>Customers</title>
     <th:block th:include="header"></th:block>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
 <div>
+    <tr th:each="u : ${user}">
+        <td th:text="${u.name}"></td>
+        <td th:text="${u.money}"></td>
+    </tr>
     <h2>List of Customers</h2>
     <table>
         <tr>
@@ -24,6 +33,7 @@
             <td th:text="${s.description}"></td>
             <td><a th:href="'/stockslisting/edit/'  + ${s.id}">Edit</a></td>
             <td><a th:href="'/stockslisting/delete/'  + ${s.id}">Delete</a></td>
+            <td><a th:href="'/stockslisting/buy/'  + ${s.id}">Buy</a></td>
         </tr>
     </table>
 </div>

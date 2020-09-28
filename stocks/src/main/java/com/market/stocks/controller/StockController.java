@@ -1,7 +1,10 @@
 package com.market.stocks.controller;
 
 import com.market.stocks.model.Stock;
-import com.market.stocks.repository.StockRepository;
+import com.market.stocks.model.User;
+import com.market.stocks.repository.IStockRepository;
+import com.market.stocks.repository.IUserRepository;
+import com.market.stocks.validators.MainValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,15 +12,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.Optional;
+
 @Controller
 public class StockController {
 
-    private StockRepository stockRepository;
+    private IStockRepository stockRepository;
+    private MainValidator stocksValidator;
+    private IUserRepository userRepository;
 
     @Autowired
-    public StockController(StockRepository stockRepository) {
+    public StockController(MainValidator stocksValidator, IStockRepository stockRepository, IUserRepository userRepository) {
         super();
+        this.stocksValidator = stocksValidator;
         this.stockRepository = stockRepository;
+        this.userRepository = userRepository;
     }
 
     @GetMapping(path = "/")
@@ -28,6 +37,7 @@ public class StockController {
     @GetMapping(path = "/stockslisting")
     public String getAllStocksListing(Model model) {
         model.addAttribute("stockslisting", stockRepository.findAll());
+        model.addAttribute("user", userRepository.findAll());
         return "stockslisting";
     }
 
@@ -38,8 +48,18 @@ public class StockController {
     }
 
     @PostMapping(path = "/stockslisting/save")
-    public String saveCustomer(Stock stock) {
+    public String saveCustomer(Stock stock) throws Exception {
+        stocksValidator.executeValidations(stock);
         stockRepository.save(stock);
+        return "redirect:/stockslisting";
+    }
+
+    @GetMapping(path = "/stockslisting/buy/{id}")
+    public String buyStocks(@PathVariable(value = "id") long id) throws Exception {
+        User user = userRepository.getOne(1L);
+        Stock stock = stockRepository.getOne(id);
+        user.setMoney(user.getMoney() - stock.getPrice());
+        userRepository.save(user);
         return "redirect:/stockslisting";
     }
 
@@ -54,5 +74,4 @@ public class StockController {
         stockRepository.deleteById(id);
         return "redirect:/stockslisting";
     }
-
 }
