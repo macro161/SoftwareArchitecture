@@ -2,7 +2,7 @@ package com.market.stocks.repository;
 
 import com.market.stocks.model.Stock;
 import com.market.stocks.model.User;
-import com.market.stocks.validators.MainValidator;
+import com.market.stocks.validators.interfaces.IStockValidator;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import java.io.Reader;
 public class DataLoader  implements CommandLineRunner{
 
     private IStockRepository stockRepository;
-    private MainValidator validator;
+    private IStockValidator validator;
     private IUserRepository userRepository;
 
     Reader in = new FileReader("src/main/resources/datadump.csv");
@@ -25,7 +25,7 @@ public class DataLoader  implements CommandLineRunner{
 
 
     @Autowired
-    public DataLoader(IStockRepository stockRepository, MainValidator validator, IUserRepository userRepository) throws IOException {
+    public DataLoader(IStockRepository stockRepository, IStockValidator validator, IUserRepository userRepository) throws IOException {
         super();
         this.stockRepository = stockRepository;
         this.validator = validator;

@@ -1,7 +1,7 @@
-package com.market.stocks.validators;
+package com.market.stocks.validators.interfaces;
 
 import com.market.stocks.model.Stock;
 
-public interface MainValidator {
+public interface IStockValidator {
     void executeValidations(Stock stock) throws Exception;
 }

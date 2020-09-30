@@ -1,11 +1,12 @@
-package com.market.stocks.validators;
+package com.market.stocks.validators.implementations;
 
 import com.market.stocks.model.Stock;
+import com.market.stocks.validators.interfaces.IStockInputValidator;
 import org.springframework.util.StringUtils;
 
-public class StockEmptyValueValidator implements IStocksValidator {
+public class StockEmptyValueValidator implements IStockInputValidator {
     @Override
-    public void validate(Stock stock) throws Exception {
+    public void validateInput(Stock stock) throws Exception {
         if (StringUtils.isEmpty(stock.getStockName())) {
             throw new Exception("Stock name cannot be empty");
         }

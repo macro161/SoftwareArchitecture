@@ -1,13 +1,14 @@
-package com.market.stocks.validators;
+package com.market.stocks.validators.implementations;
 
 import com.market.stocks.model.Stock;
+import com.market.stocks.validators.interfaces.IStockInputValidator;
 
-public class StockValueValidator implements IStocksValidator {
+public class StockValueValidator implements IStockInputValidator {
 
     private static int MAX_STOCK_NAME_LENGTH = 4;
 
     @Override
-    public void validate(Stock stock) throws Exception {
+    public void validateInput(Stock stock) throws Exception {
         if (stock.getStockName().length() > MAX_STOCK_NAME_LENGTH) {
             throw new Exception("Stock name cannot have name longer then 4 characters");
         }

@@ -4,7 +4,8 @@ import com.market.stocks.model.Stock;
 import com.market.stocks.model.User;
 import com.market.stocks.repository.IStockRepository;
 import com.market.stocks.repository.IUserRepository;
-import com.market.stocks.validators.MainValidator;
+import com.market.stocks.validators.interfaces.IStockBuyValidator;
+import com.market.stocks.validators.interfaces.IStockValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,21 +13,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.Optional;
-
 @Controller
 public class StockController {
 
     private IStockRepository stockRepository;
-    private MainValidator stocksValidator;
     private IUserRepository userRepository;
 
+    private IStockValidator stocksValidator;
+    private IStockBuyValidator stockBuyValidator;
+
+
     @Autowired
-    public StockController(MainValidator stocksValidator, IStockRepository stockRepository, IUserRepository userRepository) {
+    public StockController(IStockValidator stocksValidator, IStockRepository stockRepository, IUserRepository userRepository, IStockBuyValidator stockBuyValidator) {
         super();
         this.stocksValidator = stocksValidator;
         this.stockRepository = stockRepository;
         this.userRepository = userRepository;
+        this.stockBuyValidator = stockBuyValidator;
     }
 
     @GetMapping(path = "/")
@@ -58,8 +61,15 @@ public class StockController {
     public String buyStocks(@PathVariable(value = "id") long id) throws Exception {
         User user = userRepository.getOne(1L);
         Stock stock = stockRepository.getOne(id);
+
+        stockBuyValidator.executeBuyValidations(stock, user);
+
         user.setMoney(user.getMoney() - stock.getPrice());
         userRepository.save(user);
+
+        stock.setAvailableAmount(stock.getAvailableAmount() - 1);
+        stockRepository.save(stock);
+
         return "redirect:/stockslisting";
     }
 
