@@ -39,7 +39,10 @@ public class StockService {
         return stock;
     }
 
-    public Stock deleteStock(Stock stock) {
+    public Stock deleteStock(Long id) {
+        Stock stock = stockRepository.findById(id).get();
+        stockRepository.delete(stock);
+
         return stock;
     }
 

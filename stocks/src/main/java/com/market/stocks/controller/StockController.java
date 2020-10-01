@@ -41,8 +41,8 @@ public class StockController {
         return stockService.editStock(stock);
     }
 
-    @RequestMapping(value = "/deletestock", method = RequestMethod.DELETE, headers = "Accept=application/json")
-    public Stock deleteStock(Stock stock) {
-        return stockService.deleteStock(stock);
+    @RequestMapping(value = "/deletestock/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
+    public Stock deleteStock(@PathVariable Long id) {
+        return stockService.deleteStock(id);
     }
 }

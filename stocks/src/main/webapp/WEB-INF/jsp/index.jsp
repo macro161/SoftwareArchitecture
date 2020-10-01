@@ -28,6 +28,7 @@
             <th>Price</th>
             <th>Available amount</th>
             <th>Description</th>
+            <th>DELETE</th>
         </tr>
     </table>
 
@@ -35,6 +36,26 @@
 </html>
 
 <script>
+    function RemoveRow(id) {
+        alert(id);
+        $.ajax({
+            url : 'http://localhost:8080/deletestock/country/' + id,
+            type : 'DELETE',
+            dataType: 'json',
+            data: id,
+            contentType: 'application/html',
+            mimeType: 'application/html',
+            success : function(data) {
+                alert(JSON.stringify(data));
+                alert(data.status);
+            },
+            error : function(data) {
+                alert(JSON.stringify(data));
+                alert(data.status);
+            }
+        });
+    }
+
     $("tr:has(td)").remove();
 	$("#getAllButton").click(function() {
 		$.ajax({
@@ -47,7 +68,8 @@
                             $('<td>').text(data.stockName),
                             $('<td>').text(data.price),
                             $('<td>').text(data.availableAmount),
-                            $('<td>').text(data.description)
+                            $('<td>').text(data.description),
+                            $('<td>').html("<input type='button' name='' value='Remove Last Row' onclick='RemoveRow("+data.id+");'>")
                         ).appendTo('#stockstable');
                     });
 			},
