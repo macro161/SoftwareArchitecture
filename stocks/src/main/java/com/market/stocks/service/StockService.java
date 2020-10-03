@@ -1,16 +1,17 @@
 package com.market.stocks.service;
 
-import com.market.stocks.dto.UserStockDTO;
 import com.market.stocks.model.Stock;
 import com.market.stocks.model.User;
 import com.market.stocks.repository.IStockRepository;
 import com.market.stocks.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Component
+@Service
 public class StockService {
 
     private IStockRepository stockRepository;
@@ -31,11 +32,22 @@ public class StockService {
         return stock;
     }
 
-    public UserStockDTO buyStocks(UserStockDTO userStockDTO) {
-        return userStockDTO;
+    public Stock getStockById(Long id) {
+        return stockRepository.findById(id).get();
+    }
+
+    public Stock buyStocks(Long id) {
+        Stock stock = stockRepository.findById(id).get();
+        stock.setAvailableAmount(stock.getAvailableAmount() - 1);
+        stockRepository.save(stock);
+        User user = userRepository.findById(1L).get();
+        user.setMoney(user.getMoney() - stock.getPrice());
+        userRepository.save(user);
+        return stock;
     }
 
     public Stock editStock(Stock stock) {
+        stockRepository.save(stock);
         return stock;
     }
 
