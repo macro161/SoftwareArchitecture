@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 20.7) (preloaded format=xelatex 2020.9.3)  14 NOV 2020 21:52
+This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 20.7) (preloaded format=xelatex 2020.9.3)  14 NOV 2020 22:18
 entering extended mode
 **./magistrinis.tex
 (magistrinis.tex
@@ -1064,7 +1064,15 @@ LaTeX Info: Redefining \ttfamily on input line 3.
 
 ] [4
 
-] [5
+]
+File: img/context.png Graphic file (type bmp)
+<img/context.png>
+
+Overfull \hbox (14.72504pt too wide) in paragraph at lines 60--61
+ [][] 
+ []
+
+[5
 
 ] [6
 
@@ -1147,10 +1155,10 @@ Package logreq Info: Writing requests to 'magistrinis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 17945 strings out of 414493
- 370515 string characters out of 2907548
- 1111624 words of memory out of 3000000
- 34936 multiletter control sequences out of 15000+200000
+ 17969 strings out of 414493
+ 370821 string characters out of 2907548
+ 1111620 words of memory out of 3000000
+ 34953 multiletter control sequences out of 15000+200000
  548022 words of font info for 96 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
  73i,11n,104p,909b,3868s stack positions out of 5000i,500n,10000p,200000b,50000s
