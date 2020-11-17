@@ -6,22 +6,38 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.}Suinteresuoti asmenys}{3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.}Požiūrio taškai}{4}%
+\contentsline {section}{\numberline {3.}Konteksto požiūrio taškas}{4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.}Konteksto požiūrio taškas}{5}%
+\contentsline {subsection}{\numberline {3.1.}Sistemos taikymo sritis}{4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.}Sistemos taikymo sritis}{5}%
+\contentsline {subsection}{\numberline {3.2.}Konteksto požiūrio taško diagrama}{4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.}Konteksto požiūrio taško diagrama}{5}%
+\contentsline {subsection}{\numberline {3.3.}Funkciniai reikalavimai}{4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.}Funkcinis požiūrio taškas}{6}%
+\contentsline {subsubsection}{\numberline {3.3.1.}Pardavėjas reikalavimai}{4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.}Informacijos požiūrio taškas}{7}%
+\contentsline {subsubsection}{\numberline {3.3.2.}Pirkėjas reikalavimai}{5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.}Lygiagretumo požiūrio taškas}{8}%
+\contentsline {subsubsection}{\numberline {3.3.3.}Prekių siuntimo reikalavimai}{5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8.}Kūrimo požiūrio taškas}{9}%
+\contentsline {subsubsection}{\numberline {3.3.4.}Banko reikalavimai}{5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9.}Diegimo požiūrio taškas}{10}%
+\contentsline {subsubsection}{\numberline {3.3.5.}Kriptovaliutų reikalavimai}{6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {10.}Operatyvinis požiūrio taškas}{11}%
+\contentsline {subsubsection}{\numberline {3.3.6.}Policijos reikalavimai}{6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.3.7.}Teisiniai reikalavimai}{6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.3.8.}Bendri reikalavimai}{6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.}Funkcinis požiūrio taškas}{7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.}Informacijos požiūrio taškas}{8}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.}Lygiagretumo požiūrio taškas}{9}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.}Kūrimo požiūrio taškas}{10}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8.}Diegimo požiūrio taškas}{11}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {9.}Operatyvinis požiūrio taškas}{12}%
