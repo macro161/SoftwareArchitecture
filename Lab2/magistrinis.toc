@@ -32,12 +32,22 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.}Funkcinis požiūrio taškas}{7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.}Informacijos požiūrio taškas}{8}%
+\contentsline {subsection}{\numberline {4.1.}Komponentų diagrama}{8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.}Lygiagretumo požiūrio taškas}{9}%
+\contentsline {subsection}{\numberline {4.2.}Interfeisų aprašai}{9}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.}Kūrimo požiūrio taškas}{10}%
+\contentsline {subsection}{\numberline {4.3.}Procesai apimantys visą sistemą}{10}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8.}Diegimo požiūrio taškas}{11}%
+\contentsline {section}{\numberline {5.}Informacijos požiūrio taškas}{11}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9.}Operatyvinis požiūrio taškas}{12}%
+\contentsline {section}{\numberline {6.}Lygiagretumo požiūrio taškas}{12}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.}Kūrimo požiūrio taškas}{13}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8.}Diegimo požiūrio taškas}{14}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {8.1.}Diegimo diagrama}{14}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {8.2.}Priklausomybių modelis}{15}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {9.}Operatyvinis požiūrio taškas}{16}%

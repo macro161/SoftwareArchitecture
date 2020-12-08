@@ -12,6 +12,9 @@
 \usepackage{listings}
 \usepackage{subfig}
 \usepackage{wrapfig}
+\usepackage[table,xcdraw]{xcolor}
+
+\newcolumntype{L}{>{\columncolor{black}\color{white}}l}
 
 
 \university{Vilniaus universitetas}
@@ -116,10 +119,136 @@
 					\end{enumerate}
 			
 		\section{Funkcinis požiūrio taškas}
+			Sistema kuriama bandant išlaikyti komponentų atskirtį, sustojus veikti vienam sistemos komponentui, kiti komponentai neturi būti įtakojami.
+			Sustojus ,,Prekių aukciono sistema" komponento veikimui vis dar veikia ,,Administravimo sistema" komponento veikimas ir taip toliau.
+			\subsection{Komponentų diagrama}
+				\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.7]{img/function}
+				\caption{Kompnentų diagrama} % Antraštė įterpiama po paveikslėlio
+				\label{img:text}
+				\end{figure}
+			\subsection{Interfeisų aprašai}
+
+				\begin{table}[H]
+				\centering
+				\begin{tabular}{|L|p{9cm}|}\hline
+			 		Interfeiso pavadinimas& Crypto Interface\\ \hline
+			 		Aprašymas& Interfeisas atsakingas už vartotojų kripto valiutų pervedimus ir pinigų išgryninimą iš kripto valiutos į eurus \\ \hline
+				\end{tabular}
+				\caption{Crypto Interface}
+				\end{table}
+
+				\begin{table}[H]
+				\centering
+				\begin{tabular}{|L|p{9cm}|}\hline
+			 		Interfeiso pavadinimas& User Interface\\ \hline
+			 		Aprašymas& Interfeisas skirtas perduoti perduoti duomenis vartotojo naršyklei. Perduodami su aukcionu susije duomenys.  \\ \hline
+				\end{tabular}
+				\caption{User Interface}
+				\end{table}
+
+				\begin{table}[H]
+				\centering
+				\begin{tabular}{|L|p{9cm}|}\hline
+			 		Interfeiso pavadinimas& Paysera Interface\\ \hline
+			 		Aprašymas& Skirta atlikti pavedimus pridedant pinigus į aukciono sąskaitą arba juos bandant išsiimti. Šis intefeisas taip pat skirtas pinigus pervesti į įmonės sąskaitą \\ \hline
+				\end{tabular}
+				\caption{Paysera Interface}
+				\end{table}
+
+				\begin{table}[H]
+				\centering
+				\begin{tabular}{|L|p{9cm}|}\hline
+			 		Interfeiso pavadinimas&Storage Interface\\ \hline
+			 		Aprašymas&  Šio interfeisu naudojamasi perduoti duomenis sandelio darbuotojo naršyklei bei sandelio daruotojui pranešti apie blogas arba neatitinkančias prekes \\ \hline
+				\end{tabular}
+				\caption{Storage Interface}
+				\end{table}
+
+				\begin{table}[H]
+				\centering
+				\begin{tabular}{|L|p{9cm}|}\hline
+			 		Interfeiso pavadinimas& StorageAuction Interface \\ \hline
+			 		Aprašymas&Interfeisas skirtas komunikuoti su aukciono prekiu duomenu baze  \\ \hline
+				\end{tabular}
+				\caption{ StorageAuction Interface}
+				\end{table}
+
+				\begin{table}[H]
+				\centering
+				\begin{tabular}{|L|p{9cm}|}\hline
+			 		Interfeiso pavadinimas& Auction Interface\\ \hline
+			 		Aprašymas& Interfeisas skirtas komunikuoti su duomenų baze. Šioje vietoje aukcione atlikti pirkimai ir pardavimai užregistruojami duomenų bazėje. \\ \hline
+				\end{tabular}
+				\caption{ Auction Interface}
+				\end{table}
+
+				\begin{table}[H]
+				\centering
+				\begin{tabular}{|L|p{9cm}|}\hline
+			 		Interfeiso pavadinimas& AuctionAdmin Interface\\ \hline
+			 		Aprašymas& Administratoriaus sąsajos bendravimo su aukciono duomenų baze. Čia administratorius gali matyti aukciono informaciją ir ją dalinai koreguoti \\ \hline
+				\end{tabular}
+				\caption{AuctionAdmin Interface}
+				\end{table}
+
+				\begin{table}[H]
+				\centering
+				\begin{tabular}{|L|p{9cm}|}\hline
+			 		Interfeiso pavadinimas& Legal Interface\\ \hline
+			 		Aprašymas& Šiame interfese administratorius perduoda reikalingą informacija e.Policijai apie nelegalias prekes siunčiamas aukcione \\ \hline
+				\end{tabular}
+				\caption{Legal Interface}
+				\end{table}
+
+				\begin{table}[H]
+				\centering
+				\begin{tabular}{|L|p{9cm}|}\hline
+			 		Interfeiso pavadinimas& Admin Interface\\ \hline
+			 		Aprašymas& Interfeisas per kuri administratorius pasiekią aukciono platformą per naršyklę \\ \hline
+				\end{tabular}
+				\caption{Admin Interface}
+				\end{table}
+
+				\begin{table}[H]
+				\centering
+				\begin{tabular}{|L|p{9cm}|}\hline
+			 		Interfeiso pavadinimas& Delivery Interface\\ \hline
+			 		Aprašymas& Interfeisas skirtas administracijai komunikuoti su pristatymu įmone DPD, atlikti siuntų paėmimą ir sekimą. \\ \hline
+				\end{tabular}
+				\caption{Delivery Interface}
+				\end{table}
+			\subsection{Procesai apimantys visą sistemą}
+				Sistemoje vykdomas įvykių žurnalizavimas sekti vartotojo veiksus sistemoje ir registruoti sistemines klaidas.
+				Šis procesas apima visus vidinius sistemos komponentus.
+				Žurnalai saugomi sistemos serveryje.
 		\section{Informacijos požiūrio taškas}
 		\section{Lygiagretumo požiūrio taškas}
 		\section{Kūrimo požiūrio taškas}
 		\section{Diegimo požiūrio taškas}
+			Sistema yra išskirstyta į tris skirtingas produkcines aplinkas iš kurių kiekviena aplinka gali būti sukurta kelis kartus siekiant horizontalaus scale'inimo.
+			Aplinkoje taip pat yra duomenų bazės mazgas, jo taip pat galima sukurti kelis mazgus siekiant paskirstyti apkrovas.
+			Duomenu bazė tampa eventualy consistant.
+			Produkcinėje aplinkoje yra backend jar failas, ir front end failai.
+			Visos aplinkos veikia ant Linux operacinės sistemos o visi mazgai yra Docker aplinkoje.
+			\subsection{Diegimo diagrama}
+				\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.7]{img/deployment}
+				\caption{Kompnentų diagrama} % Antraštė įterpiama po paveikslėlio
+				\label{img:text}
+				\end{figure}
+			\subsection{Priklausomybių modelis}
+				\begin{itemize}
+					\item{JRE 1,8}
+					\item{Orable DBMS 11}
+					\item{Linux}
+					\item{Node.js}
+					\item{Spring Boot}
+					\item{Docker}
+				\end{itemize}
+			
 		\section{Operatyvinis požiūrio taškas}
 		
 
