@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 20.7) (preloaded format=xelatex 2020.9.3)  8 DEC 2020 02:32
+This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 20.7) (preloaded format=xelatex 2020.9.3)  8 DEC 2020 17:41
 entering extended mode
 **./magistrinis.tex
 (magistrinis.tex
@@ -917,7 +917,18 @@ Package biblatex Warning: Conflicting options.
 (biblatex)                'date=iso' requires 'seconds=true'.
 (biblatex)                Setting 'seconds=true' on input line 35.
 
-No file magistrinis.aux.
+(magistrinis.aux
+LaTeX Info: Redefining \rmfamily on input line 6.
+LaTeX Info: Redefining \sffamily on input line 6.
+LaTeX Info: Redefining \ttfamily on input line 6.
+
+
+LaTeX Warning: Label `img:text' multiply defined.
+
+
+LaTeX Warning: Label `img:text' multiply defined.
+
+)
 \openout1 = `magistrinis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
@@ -931,7 +942,7 @@ LaTeX Font Info:    ... okay on input line 35.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 3
 5.
-("C:\Program Files\MiKTeX\tex/latex/base\ts1cmr.fd"
+ ("C:\Program Files\MiKTeX\tex/latex/base\ts1cmr.fd"
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 35.
@@ -1078,10 +1089,14 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 36.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-]
-No file magistrinis.toc.
+] (magistrinis.toc
+LaTeX Info: Redefining \rmfamily on input line 3.
+LaTeX Info: Redefining \sffamily on input line 3.
+LaTeX Info: Redefining \ttfamily on input line 3.
+)
 \tf@toc=\write4
 \openout4 = `magistrinis.toc'.
+
 
 [1
 
@@ -1193,7 +1208,7 @@ LaTeX Info: Redefining \ttfamily on input line 6.
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
 
 Package biblatex Warning: Please (re)run Biber on the file:
@@ -1205,12 +1220,12 @@ Package logreq Info: Writing requests to 'magistrinis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 18522 strings out of 414493
- 376998 string characters out of 2907548
- 1127320 words of memory out of 3000000
- 35498 multiletter control sequences out of 15000+200000
+ 18523 strings out of 414493
+ 377027 string characters out of 2907548
+ 1127367 words of memory out of 3000000
+ 35495 multiletter control sequences out of 15000+200000
  548022 words of font info for 96 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
- 73i,12n,104p,909b,3823s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 73i,12n,104p,909b,3868s stack positions out of 5000i,500n,10000p,200000b,50000s
 
 Output written on magistrinis.pdf (17 pages).

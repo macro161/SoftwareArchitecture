@@ -51,3 +51,9 @@
 \contentsline {subsection}{\numberline {8.2.}Priklausomybių modelis}{15}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {9.}Operatyvinis požiūrio taškas}{16}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {9.1.}Diegimas ir migracija}{16}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {9.2.}Configūracijos valdymas}{16}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {9.3.}Sistemos administravimas}{16}%
