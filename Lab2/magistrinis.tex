@@ -223,9 +223,6 @@
 				Sistemoje vykdomas įvykių žurnalizavimas sekti vartotojo veiksus sistemoje ir registruoti sistemines klaidas.
 				Šis procesas apima visus vidinius sistemos komponentus.
 				Žurnalai saugomi sistemos serveryje.
-		\section{Informacijos požiūrio taškas}
-		\section{Lygiagretumo požiūrio taškas}
-		\section{Kūrimo požiūrio taškas}
 		\section{Diegimo požiūrio taškas}
 			Sistema yra išskirstyta į tris skirtingas produkcines aplinkas iš kurių kiekviena aplinka gali būti sukurta kelis kartus siekiant horizontalaus scale'inimo.
 			Aplinkoje taip pat yra duomenų bazės mazgas, jo taip pat galima sukurti kelis mazgus siekiant paskirstyti apkrovas.
@@ -260,6 +257,74 @@
 				Vidurnakti atliekamas naujos versijos diegimas arba modulių bei bibliotekų update'inimas
 			\subsection{Sistemos administravimas}
 				Sistemą prižiūri vienas Fullstack programuotojas
+		\section{Saugumo perspektyva}
+			\subsection{Konteksto požiūrio taško saugumo perspetyva}
+				Išoriniai ryšiai ir su jai susijusios grėsmės
+				\begin{itemize}
+					\item{Vartotojo sąsaja -- į per vartotojo sąsaja gali prisijungti neautorizuotas vartotojas ir gauti vartotojo asmeninius duomenis bei siuntų pristatymo ir išsiuntimo adresus. Susiekti su administracija, kad būtų pakeičiamas siuntos adresas. }
+					\item{Kriptovaliutos sistemos sąsaja -- nekorektiškai siunčiant duomenis gali būti perimti ir kripto valiutos persiunčiamos į kitą piniginę}
+					\item{Banko sistemos sąsaja -- gresmė panaši kaip ir su kripto valiutomis, nekorektiškai siunčiant duomenis juos būtų galima perimti ir pinigai būtų siunčiami į kitą sąskaitą.}
+					\item{Vartotojo duomenų bazė -- gavus administratoriaus lygio prieeigą prie duomenų bazės būtų galima gauti visus asmeninius duomenis saugomus joje.}
+					\item{Prekių duomenų bazė -- panašiai kaip ir su vartotojo duomenų bazėmis gavus prieeiga būtų galima gauti duomenis apie siuntas ir taikant socialinės inžinerijos atakas perimtas tas siuntas ir pakeisti adresatus.}
+					\item{E. policijos duomenų bazė -- kenkėjiškai sistemai imitavus E. policijos sąsaja būtų galima perimti informaciją apie vartotojus bei paprašyti nelegalių siuntų atsiėmimo.}
+					\item{Prekių siuntimo sistemos sąsaja -- gavus prieeigą prekių siuntimo sąsajos būtų galima nukreipti siuntinius kitu adresu.}
+					\item{Prekių patvirtinimo sistema -- gavus prieeiga prie patvirtinimo sistemos būtų galima patvirtinti ir išiųsti nelegalias prekes.}
+				\end{itemize}
+				Į šias sistemas galima įsilaužti socialinės inžinerijos, slaptažodžių perrinkimo ir vidurinio žmogaus atakos metodais.
+			\subsection{Funkcinio požiūrio taško saugumo perspektyva}
+				Saugumui svarbūs funkciniai elementai:
+				\begin{itemize}
+					\item{Prekių aukciono sistema -- Išorinė sąsaja bendraujanti su vartotojais ir pinigų valdymo sistemomis. Savarbu užtikrinti, kad pinigų ir kripto valiutų sistemos būtų saugiai pasiekiamos ir neįvyktu vidurio žmogaus atakų.}
+					\item{Aukciono prekių sistema -- Šio komponento sauguma užtikrinti saugiausia, nes kiti komponentai jungiantys prie šio komponento gali pasiekti pasiekti visus sistemos duomenis apie vartotojus ir prekes, todėl svarbu užtikrinti, kad sąsaja su kitais lementais kuriems siunčiama informacija, būtu saugi}
+					\item{Sandelio sistema -- šioje sistemoje svarbu užtikrinti, kad prekių siuntimo ir gavimo adresas nebūtų pakeistas, bei nebūtų nelegalios prekės nurodytos kaip legalios.}
+					\item{Administravimo sistema -- gavus prieeiga prie administratoriaus saršyklės būtų galima nusiųsti DPD prekių siuntų sistemai kitus adresus ir prekės būtų pristatytos į netinkamą adresą.}
+				\end{itemize}
+			\subsection{Diegimo požiūrio taško saugumo persketyva}
+				Diegiant programinę įrangą yra svarbu ne diegti naujausios versijos programas, o diegti programas su stabiliomis ir patikrintomis versijomis.
+				Kiekviena programa ir jos naudojamos versijos turi būto laikomos vidiniame įmonės repozitoriume, kad išvengti problemų jeigu programos kūrėjai nebepalaikyti senos versijos.
+				Pačią naujausia versiją reiktų diegti tik tuo atveju jeigu joje išspręstos svarbios sistemos saugumo spragos. 
+				Diegimo požiūrio taške svarbu užtikrinti šiuos dalykus:
+				\begin{itemize}
+					\item{Docker -- svarbu palaikyti saugią ir stabilią versiją.}
+					\item{Techninė įranga(CPU,GPU,Motherboard) -- svarbu atnaujinti įrangos draiverius ir palaikiančia programinę įrangą.}
+					\item{JRE -- svarbu turėti saugią aplinkos versiją.}
+					\item{Front-end -- svarbu palaikyti saugią karkasų versija, analizuoti ar Front-end kodas nepriklauso nuo abeotino saugumo npm modulių, stengtis kad būtų kuo mažiau npm priklausomybių}
+					\item{Duomenų bazė - svarbu turėti saugią duomenų bazės versiją.}
+				\end{itemize}
+				Atnaujinant programos versiją turi būti paruoštas roll-back planas, jeigu įdiegta versija pasirodytų esą nestabili arba turinti saugumo spragų.
+				Diegiant versijas svarbu turėti jas išsisaugojus savo sistemos repozitoriume, kad būtų sumažintas komunikavimas su internetu ir naujų failų siuntimasis, kad atveria daugiau saugumo spregų.
+				Jeigu sistema bus kuriama debesijos aplinkoje saugiomis programų versijomis bus pasirūpinta debelies tiekėjo.
+			\subsection{Bendra saugumo perspektyva}
+				\subsubsection{Resursai}
+					Apie resursus ir jų įtaką saugumui aprašyta praeituose skirsniuose
+				\subsubsection{Politika}
+					Vartotojų grupės ir jų galimybė pasiekti sistemas:
+					\begin{itemize}
+						\item{Vartotojas - netiesiogiai gali pasiekti prekių katalogo informaciją ir atlikdamas pirmikus arba pardavimus netiesiogiai keisti šią informaciją. Jeigu vartotojas sugeba pasiekti jam nepriskirta informacijos saugumo lygi už tai yra atsakingas sistemos administratorius.}
+						\item{Darbuotojas - gali pasiekti Prekių aukciono katalogo sistemą, sandelio sistemą bei administravimo sistemą. Darbuotojas gali pasiekti visą informaciją esančia sistemoje tačiau negali koreguoti vartotojo ir prekių duomenų. Darbuotojas gali koreguoti prekės siuntimo būseną, bei gali pakeisti prekės legalumo būsena iš legalios į nelegalią, tačiau ne atvirkščiai.}
+						\item{Sistemos administratorius - gali matyt ir keisti visus sistemos duomenis. Yra atskingas už netikamo turinio ir kenkėjimų naudotojų panaikinimą iš sistemos, pranešimą policijai apie nelegalias prekes bet prekės būsenos atstatymą iš nelegalios į nelegalią.}
+					\end{itemize}
+				\subsubsection{Mechanizmai}
+					Užtikrinti saugumą bus įgyvendinti šie saugumo mechanizmai
+					\begin{itemize}
+						\item{Vartotojams - registruojantis ir jungiantis prie sistemos vartotojas turės nurodyti pakankamo saugumo slaptažodį. Jungiantis prie sistemos vartotojas turės naudotis dviejų faktorių autetikacija. Slaptažodis turės bus keičiamas kas pusę metų. Iš vartotojo pusės nebus galimą siųsti perdaug užklausų iš vieno IP adreso arba prieeiga vartotojui bus laikinai apribota. Jungiantis prie sistemos vartotojas turės naudotis pakankamai saugios versijos naršyklę. }
+						\item{Darbuotojams -  Darbuotojams norint prisijungti prie sistemos reiktu prisijungti per VPN, trūrėti pakankamo saugumo slaptažodi kuris būtu keičiamas kas tris mėnesius bei turėti dviejų faktorių autentikacijos PIN kodo generatorių. Už isilaužimus į darbuotojo sistema atsakingas yra Administratorius}
+						\item{Administratorius - tie patys reikalavimai kaip ir darbuotojui tik slaptažodis keičiamas kas mėnesį}
+					\end{itemize}
+				\subsubsection{Principai}
+					Sistemoje laikomasi duomenų prieeigos mažinimo ir edukacijos principų. 
+					Vartotojui suteikti tik tiek prieeigos kiek jam reikia atlikti savo darbus ir ne daugiau.
+					Kas pusę metų Darbuotojams ir administratoriams rodyti informacijos saugumo edukacinius video ir liepti praeiti testą apie infomaciją pateiktą edukaciniuose video.
+					Vykdyti Phishing treniruotes kuomet sistemos vartotojams yra išsiunčiami nesaugios nuorodos taip skatinti vartotojų budrumą, o vartotojui paspaudus ant Phishinimo atakos nuorodos prašyto jo dar kartą peržiūrėti informacijos saugumo edukaciniu video.
+					Saugumas yra užtikrinamas per geranorišką edukacija, o ne per baudimus.
+
+		\subsection{Įsilaužimo protokolas}
+			Įvykus isilaužimui į sistemą visas sistemos darbas yra nutraukiamas.
+			Sistemos administratorius informuoja Nacionalinį kibernetinio saugumo centrą apie įvykusį įsilaužimą.
+			Nustatoma sistema į kurią buvo įsilaužta ir atkūriami pakeisti duomenį, sumokama finansinė kompensacija jeigu vartotojas patyrė nuostolių dėl įsilaužimo ir ši suma neviršiją 5000 eurų.
+			Visiems sistemos vartotojams liepiama pakeisti visus savo slaptažodžius.
+			Sudaromas saugumo spragos ištaisymo planas.
+			Pakeliama arba sumažinama programos versija jeigu tai padėtų saugumui.
 	
 
 
